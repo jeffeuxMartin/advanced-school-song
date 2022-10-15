@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTU lyrics</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<!-- <script src= "ntu.js"></script> -->
+<!-- <script src= "bundlejeff.js"></script> -->
+<!-- <script src="https://cdn.skypack.dev/pin/google-translate-api@v2.3.0-HvC6enUrsfR3eWpF7ON1/mode=imports/optimized/google-translate-api.js" -->
+<!-- ></script> -->
+<!-- <script type="text/javascript" src="output_jeff.js"></script> -->
+<script src="https://pulipulichen.github.io/jieba-js/jquery.js"></script>
+<script src="https://pulipulichen.github.io/jieba-js/require-jieba-js.js"></script>
+<!-- <script src="https://unpkg.com/google-translate-api@2.3.0/index.js"></script> -->
+<script
+    type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+></script>
+
+<!-- https://www.npmjs.com/package/google-translate-api-browser -->
+<!-- https://github.com/iamtraction/google-translate -->
+<!-- <div id="google_translate_element">  -->
+<!--     你好  -->
+<!-- </div>  -->
+<div class ="main">
+    <div class = "card">
+        <img class="logo-img" src="ntu-logo.png">
+        <div class = "title"> 台大校歌</div>
+        <div id = "lyrics"> 
+        <br />
+        臺大的環境鬱鬱蔥蔥
+        <br />
+        臺大的氣象勃勃蓬蓬
+        <br />
+        遠望那玉山突出雲表
+        <br />
+        正象徵我們目標的高崇
+        <br />
+        近看蜿蜒的淡水
+        <br />
+        他不捨晝夜地流動
+        <br />
+        正顯示我們百折不撓的作風
+        <br />
+        這百折不撓的作風
+        <br />
+        定使我們一切事業都成功
+        </div>
+    </div>
+
+    <div>
+        <button id = "btn" onclick="bettertrans()">
+            <!-- choose language -->
+            翻譯成英文
+        </button>
+
+        <button id = "segit" onclick="segit()">
+            斷詞！
+        </button>
+
+        <!-- <button id = "btn">       
+            machine translation
+        </button> -->
+
+        <button id = "singOut" onclick="singOut()">
+            唱出來！
+        </button>
+        <audio src="https://www.ntu.edu.tw/about/doc/song01.mp3" id="songsing">校歌唱！</audio>
+    </div>
+    
+</div>
+
+<script>
+    // document.getElementById("lyrics").innerText = "Hello";
+    // console.log('hi');
+    // function myFunction() {
+    //     document.getElementById("demo").innerHTML = "Paragraph changed.";
+    // }
+    // _text = "這個布丁是在無聊的世界中找尋樂趣的一種不能吃的食物，喜愛動漫畫、遊戲、程式，以及跟世間脫節的生活步調。";
+    // _text = "朋友是一個堅韌不拔的紀錄片，在香港這座城市的設置。主演：錢德勒、索羅斯、傅博斯1、瑞秋、莫妮卡和一些其他他媽的演員。中國是一個解放的國家。中國是一個偉大的國家。中國是一個萬物都是完美的國家。中國是我們最接近天堂的地方不相信我？ 這是為什麽。我咳嗽很多，但我不具有傳染性。政府已經照顧這種病毒非常好。天安門廣場什麽都沒有發生我們沒有被審查。我們可以自由發言了我們喜歡統治者。我們沒做錯什麽我還沒有失去我的社會信用。我是社會的一個正常運作的成員。統治者是最偉大的！ 我喜歡統治者統治者是眾所周知的。香港的抗議活動並不存在。每個人都喜歡這個國家！ 包括那些沒有經歷過我們國家充滿榮耀的dirty臟外人。我為生活在這個國家感到自豪。我不能離開我的祖國我是這個國家正常運作的一員，但你是?？我願意為這個國家犧牲所有的人性我不能說什麽不好的關於我的國家，或者我失去了我的家人。但我的國家比我的家人更好！我會為這個國家做任何事我為我的國家感到驕傲。中國是最重要的！ 我愛你，中國。這不是propoganda，因為我愛中國這麽多。中國第一！"
+    // call_jieba_cut(_text, function (_result) {
+    //     console.log(_result);
+    // });
+    function jieba_word_segmentor(string) { 
+        buffer = "";
+        call_jieba_cut(string, "", 
+            res => buffer = res)
+        return buffer;
+    }
+    // let line_by_line_lyrics = document.querySelectorAll('#lyrics')[0].innerText.split('\n');
+    // for (line of line_by_line_lyrics) {
+    //     
+    // }
+    // console.log(
+    //     [...line_by_line_lyrics].map(i => i)
+    // );
+    // document.querySelectorAll('#lyrics')[0].innerText = line_by_line_lyrics.map(jieba_word_segmentor).join('\n');
+    document.body.outerHTML = document.body.outerHTML.replace(/台/, '臺');
+    document.querySelector('#lyrics').innerText =
+        document.querySelector('#lyrics').innerText.trim();
+    if (0) 
+        console.log('我是誰');
+    if (0) 
+        call_jieba_cut('我是誰', console.log);
+    ss = (a) => {
+        ee = {};
+        ee['input'] = a;
+        call_jieba_cut(ee['input'],  
+            function (res) {
+                ee['res'] = res;
+            });
+        return ee['res'];
+    }
+        
+    sss = a => (ss(a)).join(' ');
+    // TODO: failed jieba
+    segit = () => {
+        s1 = document.querySelector('#lyrics').innerText;
+        s1 = s1.split('\n');
+        vv = s1.map(sss).join('\n');
+        document.querySelector('#lyrics').innerText = vv
+    }
+    
+    singOut = () => {
+        ss1 = document.querySelector('#songsing');
+        s221 = document.querySelector('#singOut');
+        // if (ss1.)
+        if (ss1.paused) {
+            ss1.play();
+            s221.innerText = "暫停～";
+            
+        }
+        else {
+            ss1.pause();
+            s221.innerText = "唱出來！";
+            
+        }
+        
+    }
+    
+
+
+translation_api_jeff = async function(input_text){
+    return fetch(
+        // `http://localhost:6069/translation?source_text=${input_text}`)
+        `https://jeff-translation.herokuapp.com/translation?source_text=${input_text}`)
+        .then(resp => resp.json())
+        .then(json_result => json_result['text'])
+        .catch(err => {console.error(err)});
+}
+
+translate_element = (myele) => {
+    translation_api_jeff(myele.innerText).then(res => {
+        myele.innerText = res
+    })
+}
+transmult = (arrayhere) => {
+    res = arrayhere.map(translation_api_jeff);
+    return Promise.all(res);
+}
+
+multitrans1 = arr => transmult(arr).then(r => console.log(r.join('\n')))
+multitrans2 = arr => {
+    transmult(arr.map(i => i.innerText))
+    .then(r => console.log(r.join('\n')))}
+
+    
+function bettertrans () {
+    // translate_element(document.querySelector("#google_translate_element"))
+    transmult(
+    document.querySelector("#lyrics").innerText.trim().split('\n'))
+    .then(r => document.querySelector("#lyrics").innerText
+               = r.join('\n'));
+
+}
+// async function change_text(element) {
+//     const response_data = await translation_api_jeff(element.innerText);
+//     console.log(response_data);
+//     element.innerText = response_data;
+// }
+
+// change_text(document.querySelector("#google_translate_element"));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "web02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async_hooks": "^1.0.0",
+    "google-translate-api": "^2.3.0",
+    "google-translate-api-browser": "^1.1.71",
+    "json-2-csv": "^3.17.2",
+    "translate-api": "^0.3.18"
+  },
+  "type": "module"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "bubu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/translate": "^7.0.3",
+    "@iamtraction/google-translate": "^2.0.0",
+    "async_hooks": "^1.0.0",
+    "browserify": "16.5.1",
+    "cors": "^2.8.5",
+    "diagnostics_channel": "^1.1.0",
+    "google-translate-api": "^2.3.0",
+    "google-translate-token": "^1.0.0"
+  }
+}

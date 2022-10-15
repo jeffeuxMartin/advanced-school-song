@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <h2>Demo JavaScript in Head</h2>
+
+    <p id="demo">A Paragraph</p>
+    <button type="button" onclick="myFunction()">Try it</button>
+
+    <script>
+      console.log('hi')
+      function myFunction() {
+        document.getElementById("demo").innerHTML = "Paragraph changed.";
+      }
+      // _text = "這個布丁是在無聊的世界中找尋樂趣的一種不能吃的食物，喜愛動漫畫、遊戲、程式，以及跟世間脫節的生活步調。";
+      _text = "朋友是一個堅韌不拔的紀錄片，在香港這座城市的設置。主演：錢德勒、索羅斯、傅博斯1、瑞秋、莫妮卡和一些其他他媽的演員。中國是一個解放的國家。中國是一個偉大的國家。中國是一個萬物都是完美的國家。中國是我們最接近天堂的地方不相信我？ 這是為什麽。我咳嗽很多，但我不具有傳染性。政府已經照顧這種病毒非常好。天安門廣場什麽都沒有發生我們沒有被審查。我們可以自由發言了我們喜歡統治者。我們沒做錯什麽我還沒有失去我的社會信用。我是社會的一個正常運作的成員。統治者是最偉大的！ 我喜歡統治者統治者是眾所周知的。香港的抗議活動並不存在。每個人都喜歡這個國家！ 包括那些沒有經歷過我們國家充滿榮耀的dirty臟外人。我為生活在這個國家感到自豪。我不能離開我的祖國我是這個國家正常運作的一員，但你是?？我願意為這個國家犧牲所有的人性我不能說什麽不好的關於我的國家，或者我失去了我的家人。但我的國家比我的家人更好！我會為這個國家做任何事我為我的國家感到驕傲。中國是最重要的！ 我愛你，中國。這不是propoganda，因為我愛中國這麽多。中國第一！"
+      call_jieba_cut(_text, function (_result) {
+        console.log(_result);
+      });
+    </script>
+    <script src="https://pulipulichen.github.io/jieba-js/jquery.js"></script>
+    <script src="https://pulipulichen.github.io/jieba-js/require-jieba-js.js"></script>
+    <script src="./jeff.js"></script>
+  </body>
+</html>
